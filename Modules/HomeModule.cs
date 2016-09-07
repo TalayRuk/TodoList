@@ -23,7 +23,8 @@ namespace ToDoList
         //The request will return the View task_added.cshtml. THis is just going to be a page that display
         // the Task we just added, newTask, so all we need to do is pass in newTask.
         //in order for form to follow this route upon being submitted, we need to change the form in add_new_task.cshtml
-        //by changing form action to task_added and add method ="post"
+        //by changing form action to task_added and add method ="post" now we need to create views/task_added.cshtml
+        //this is where we will add @Model.GetDescription() and link to view_all_tasks
       };
 
     }
