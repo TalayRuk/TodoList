@@ -1,5 +1,6 @@
 using Nancy;
 using ToDoList.Objects;
+using System.Collections.Generic;//added when use LIst<string>
 
 namespace ToDoList
 {
@@ -9,7 +10,8 @@ namespace ToDoList
     {
       Get["/"]=_=> View["add_new_task.cshtml"];
       Get["/view_all_tasks"]=_=> {
-        Task newTask = new Task(Request.Query["new-task"]);
+        List<srting> allTasks = Task.GetAll();
+        //instead of Task newTask = new Task(Request.Query["new-task"]); replaced in with List<string>
         return View["view_all_tasks.cshtml", newTask];
 
       Post["/task_added"] = _ => {
@@ -24,7 +26,7 @@ namespace ToDoList
         // the Task we just added, newTask, so all we need to do is pass in newTask.
         //in order for form to follow this route upon being submitted, we need to change the form in add_new_task.cshtml
         //by changing form action to task_added and add method ="post" now we need to create views/task_added.cshtml
-        //this is where we will add @Model.GetDescription() and link to view_all_tasks
+        //this is where we will add @Model.GetDescription() and link to view-all-tasks
       };
 
     }
