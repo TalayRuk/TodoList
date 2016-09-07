@@ -26,5 +26,9 @@ namespace ToDoList.Objects
       _instances.Add(_description);
       //when we call save() on a specific task, we add its description to _instances
     }
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
   }
 }
