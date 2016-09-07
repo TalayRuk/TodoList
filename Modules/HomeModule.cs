@@ -10,6 +10,7 @@ namespace ToDoList
       Get["/"]=_=> View["add_new_task.cshtml"];
       Get["/view_all_tasks"]=_=> {
         Task newTask = new Task(Request.Query["new-task"]);
+        newTask.Save();
         return View["view_all_tasks.cshtml", newTask];
       };
     }
